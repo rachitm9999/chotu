@@ -3,7 +3,7 @@ from discord.ext import commands , tasks
 from itertools import cycle
 
 client = commands.Bot(command_prefix = '!')
-status_loop = cycle(['playing Cyberpunk 2077', 'playing with my own life'])
+status_loop = cycle(['Cyberpunk 2077', 'With my own life'])
 
 @client.event
 async def on_ready():
@@ -51,7 +51,7 @@ async def on_member_remove(member):
 @client.command()
 async def kick(ctx, member : discord.Member, *, reason='idk'):
     await member.kick(reason=reason)
-    await ctx.send(f'Kicked {member.mention} cuz he was a lauda')
+    await ctx.send(f'Kicked {member.mention} cuz we can\'t tolerate snitches')
 
 @client.event
 async def on_command_error(ctx,error):

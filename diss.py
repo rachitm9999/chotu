@@ -3,7 +3,7 @@ from discord.ext import commands , tasks
 from itertools import cycle
 
 client = commands.Bot(command_prefix = '!')
-status_loop = cycle(['getting fucked by BBC', 'Sucking my own dick'])
+status_loop = cycle(['playing Cyberpunk 2077', 'playing with my own life'])
 
 @client.event
 async def on_ready():

@@ -1,8 +1,11 @@
 import discord
 from discord.ext import commands , tasks
 from itertools import cycle
+intents = discord.Intents.default()
+intents.members = True
 
-client = commands.Bot(command_prefix = '!')
+
+client = commands.Bot(command_prefix = '!',intents=intents)
 status_loop = cycle(['Cyberpunk 2077', 'With my own life'])
 
 @client.event
@@ -21,10 +24,25 @@ async def change_status():
 async def clear(ctx, amount : int):
     await ctx.channel.purge(limit = amount)
 
+@client.command()
+async def avatar(ctx, *,  member : discord.Member=None):
+    userAvatarUrl = member.avatar_url
+    await ctx.send(userAvatarUrl)
+
 @client.event
 async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandNotFound):
-        await ctx.send('Invalid command used i.e. mtlb kuch bhii !!')
+        await ctx.send('Invalid Command \n https://tenor.com/bbRqn.gif')
+    if isinstance(error, commands.MissingRequiredArgument):
+        await ctx.send('Please pass in all the values i.e. tere baap ka raj chal rha hai kya , pura info de')
+
+@client.event
+async def on_member_join(member):
+    print(f'@{member} has joined the server to disturb everyone')
+
+@client.event
+async def on_member_remove(member):
+    print(f'@{member} has left the server to let everybody live in peace')
 
 @clear.error
 async def clear_error(ctx, error):
@@ -40,23 +58,13 @@ async def hello(ctx):
 async def ping(ctx, *, commen):
     await ctx.send(f'Ping is {round(client.latency * 1000)}ms')
 
-@client.event
-async def on_member_join(member):
-    print(f'@{member} has joined the server to disturb everyone')
-
-@client.event
-async def on_member_remove(member):
-    print(f'@{member} has left the server to let everybody live in peace')
 
 @client.command()
-async def kick(ctx, member : discord.Member, *, reason='idk'):
+async def kick(ctx, member : discord.Member, *, reason=None):
     await member.kick(reason=reason)
     await ctx.send(f'Kicked {member.mention} cuz we can\'t tolerate snitches')
 
-@client.event
-async def on_command_error(ctx,error):
-    if isinstance(error, commands.MissingRequiredArgument):
-        await ctx.send('Please pass in all the values i.e. tere baap ka raj chal rha hai kya , pura info de')
+    
 
 @client.command()
 async def ban(ctx, member:discord.Member, *, reason=None):

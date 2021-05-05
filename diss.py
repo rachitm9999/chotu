@@ -6,7 +6,7 @@ intents.members = True
 
 
 client = commands.Bot(command_prefix = '!',intents=intents)
-status_loop = cycle(['Cyberpunk 2077', 'With my own life'])
+status_loop = cycle(['Valorant', 'With my own life'])
 
 @client.event
 async def on_ready():

@@ -90,4 +90,4 @@ async def unban(ctx,*,member):
 
 
 
-client.run('NzUzOTc2MDU1MzAzNTAzOTEz.X1uA6w.XGpRIw_tCjqGnnGpEJR5wJZ3l3s')
+client.run('vierd encrpyted shit')

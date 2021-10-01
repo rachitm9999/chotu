@@ -8,6 +8,7 @@ intents.members = True
 client = commands.Bot(command_prefix = '!',intents=intents)
 status_loop = cycle(['Valorant', 'With my own life'])
 print('yolo')
+print('yahooo!!')
 
 @client.event
 async def on_ready():

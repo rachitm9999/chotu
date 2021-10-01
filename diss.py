@@ -38,7 +38,7 @@ async def on_command_error(ctx, error):
 
 @client.event
 async def on_member_join(member):
-    print(f'@{member} has joined the server to disturb everyone')
+    print(f'@{member} has joined the server lets welcome that creature')
 
 @client.event
 async def on_member_remove(member):

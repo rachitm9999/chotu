@@ -13,7 +13,10 @@ async def on_ready():
     change_status.start()
     print('Bot is ready.')
 
-
+@client.event
+async def on_ready():
+    change_status.start()
+    print('Bot is ready.')
 
 
 @tasks.loop(seconds = 10)

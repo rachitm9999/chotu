@@ -1,0 +1,1 @@
+Feel free to upgrade this discord bot if you have any idea about discord apis and if u dont just make random pull request with some crazy css file (cuz css is more like death ) which does not even have to do anything with it as long as it does not break my bot 🥲👍🏻
